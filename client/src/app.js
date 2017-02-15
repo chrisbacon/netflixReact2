@@ -1,10 +1,19 @@
-var React = require('react');
-var ReactDOM = require('react-dom');
-var ActorContainer = require('./containers/ActorContainer.jsx');
+import React from 'react';
+import ReactDOM from 'react-dom';
+
+import {Router, Route, IndexRoute, hashHistory} from 'react-router';
+
+import Main from './components/Main.jsx';
+
+import MovieContainer from './containers/MovieContainer.jsx';
 
 window.onload = function(){
   ReactDOM.render(
-    <ActorContainer />,
+    <Router history={hashHistory}>
+        <Route path="/" component={Main}>
+            <IndexRoute component={MovieContainer} />
+        </Route>
+    </Router>,
     document.getElementById('app')
   );
 }

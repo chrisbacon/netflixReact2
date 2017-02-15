@@ -21,6 +21,8 @@ var MovieDetail = React.createClass({
         return (<div>
             <img src={this.props.movie.poster}/>
             <h3> {this.props.movie.show_title}</h3>
+            <h5>Director</h5>
+            <p>{this.props.movie.director}</p>
             <h5>Cast</h5>
             <ul onClick={this.handleClick}>
                 {lis}

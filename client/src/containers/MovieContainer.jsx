@@ -2,18 +2,18 @@ var React = require('react');
 var MovieSelector = require('../components/MovieSelector');
 var MovieDetail = require('../components/MovieDetail');
 
-var ActorContainer = React.createClass({
+var MovieContainer = React.createClass({
 
     getInitialState: function () {
-        return {movies: [], focusMovie: null, actor: "Al Pacino"}
+        return {movies: [], focusMovie: null,  target: "Al Pacino", type: "actor"}
     },
 
     componentDidMount: function() {
-        this.getActorMovies()
+        this.getMovies()
     },
 
-    getActorMovies: function () {
-        var url = "http://netflixroulette.net/api/api.php?actor=" + this.state.actor
+    getMovies: function () {
+        var url = "http://netflixroulette.net/api/api.php?" + this.state.type + "=" + this.state.target;
         console.log('url set to:', url)
         var request = new XMLHttpRequest();
         request.open('GET', url);
@@ -34,7 +34,7 @@ var ActorContainer = React.createClass({
     },
 
     changeActor: function(actor) {
-        this.setState({actor: actor}, this.getActorMovies);
+        this.setState({target: actor, type: "actor"}, this.getMovies);
         
     },
 
@@ -42,7 +42,7 @@ var ActorContainer = React.createClass({
         console.log('rendering...')
         return (
             <div>
-                <h2>{this.state.actor} Movies on Netflix</h2>
+                <h2>{this.state.target} Movies on Netflix</h2>
                 <MovieSelector movies={this.state.movies} selectMovie={this.setFocusMovie}/>
                 <MovieDetail movie={this.state.focusMovie} changeActor={this.changeActor}/>
             </div>
@@ -52,4 +52,4 @@ var ActorContainer = React.createClass({
 });
 
 
-module.exports = ActorContainer;
+module.exports = MovieContainer;
