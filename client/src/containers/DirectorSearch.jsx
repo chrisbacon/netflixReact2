@@ -10,7 +10,7 @@ class DirectorSearch extends React.Component {
     constructor(props, context) {
         super(props, context);
 
-        this.state = {type: 'director', target: 'Stanley Kubrick'}
+        this.state = {target: 'Stanley Kubrick'}
     }
 
     changeTarget(target) {
@@ -20,9 +20,9 @@ class DirectorSearch extends React.Component {
     render () {
         return (<div>
 
-            <Search changeTarget = {this.changeTarget.bind(this)} />
+            <Search changeTarget = {this.changeTarget.bind(this)} type='director' />
 
-            <MovieContainer type={this.state.type} target={this.state.target}/>
+            <MovieContainer type='director' target={this.state.target}/>
 
         </div>)
     }

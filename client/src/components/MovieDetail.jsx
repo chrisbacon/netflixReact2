@@ -3,7 +3,6 @@ var React = require('react');
 var MovieDetail = React.createClass({
 
     handleClick: function(event){
-        console.log("handle click called")
         this.props.changeActor(event.target.innerText);
     },
 

@@ -47,8 +47,8 @@ class MovieContainer extends React.Component {
         return (
             <div>
                 <h2>{this.state.target} Movies on Netflix</h2>
-                <MovieSelector movies={this.state.movies} selectMovie={this.setFocusMovie}/>
-                <MovieDetail movie={this.state.focusMovie} changeActor={this.changeActor}/>
+                <MovieSelector movies={this.state.movies} selectMovie={this.setFocusMovie.bind(this)}/>
+                <MovieDetail movie={this.state.focusMovie} changeActor={this.changeActor.bind(this)}/>
             </div>
             )
     }

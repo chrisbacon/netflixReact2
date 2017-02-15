@@ -1,6 +1,6 @@
 import React from 'react';
 
-class Search extends React.Component {
+class SearchBar extends React.Component {
 
     constructor(props, context) {
         super(props, context);
@@ -23,7 +23,7 @@ class Search extends React.Component {
 
             <form onSubmit={this.handleSubmit.bind(this)}>
                 <input type='text'/>
-                <button type='submit'/>
+                <button type='submit'>{'Find ' + this.props.type}</button>
             </form>
 
             )
@@ -33,4 +33,4 @@ class Search extends React.Component {
 }
 
 
-export default Search;
+export default SearchBar;
